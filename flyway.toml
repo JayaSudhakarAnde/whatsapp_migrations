@@ -1,0 +1,29 @@
+databaseType = "MySql"
+id = "cfb80039-1466-42e3-a7ac-8134cd00e9f5"
+name = "whatsapp_migrations"
+
+[flyway]
+callbackLocations = [ "filesystem:callbacks" ]
+locations = [ "filesystem:migrations" ]
+mixed = true
+outOfOrder = true
+schemaModelLocation = "schema-model"
+validateMigrationNaming = true
+
+[flywayDesktop]
+enableMigrations = true
+developmentEnvironment = "development"
+shadowEnvironment = "shadow"
+
+  [flywayDesktop.generate]
+  undoScripts = false
+
+[redgateCompare]
+filterFile = "filter.rgf"
+
+[redgateCompare.mysql.options.ignores]
+ignoreNewlinesInTextObjects = "off"
+
+[environments.whatsapp]
+url = "jdbc:mysql://localhost:3306"
+schemas = [ "whatsapp" ]
